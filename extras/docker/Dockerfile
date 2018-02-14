@@ -25,12 +25,12 @@ RUN git clone https://github.com/TampereTC/tre-smartcity-horizon && \
 
 # Configuring settings files
 RUN cp keystone/etc/keystone.conf.sample keystone/etc/keystone.conf && \
-    cp horizon/openstack_dashboard/local/local_settings.py.example horizon/openstack_dashboard/local/local_settings.py && \
-    sed -i s/\$\$IDM_PASS/${IDM_PASS}/g horizon/openstack_dashboard/local/local_settings.py
+    cp tre-smartcity-horizon/openstack_dashboard/local/local_settings.py.example tre-smartcity-horizon/openstack_dashboard/local/local_settings.py && \
+    sed -i s/\$\$IDM_PASS/${IDM_PASS}/g tre-smartcity-horizon/openstack_dashboard/local/local_settings.py
 
 # Install python dependecies
 RUN sudo python keystone/tools/install_venv.py && \
-    sudo python horizon/tools/install_venv.py
+    sudo python tre-smartcity-horizon/tools/install_venv.py
 
 WORKDIR keystone
 
