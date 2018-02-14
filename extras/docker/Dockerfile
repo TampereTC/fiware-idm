@@ -12,7 +12,7 @@ RUN sudo apt-get update && \
     sudo python get-pip.py
 
 # Install Ubuntu project dependencies
-RUN sudo apt-get install -y python-dev python-virtualenv libssl-dev libffi-dev libjpeg8-dev libxml2-dev libxslt1-dev libsasl2-dev libssl-dev libldap2-dev libffi-dev libsqlite3-dev libmysqlclient-dev python-mysqldb
+RUN sudo apt-get install -y python-dev python-virtualenv libssl-dev libffi-dev libjpeg8-dev libxml2-dev libxslt1-dev libsasl2-dev libssl-dev libldap2-dev libffi-dev libsqlite3-dev libmysqlclient-dev python-mysqldb six
 
 # Download latest version of the code 
 RUN git clone https://github.com/ging/keystone && \
@@ -28,9 +28,11 @@ RUN cp keystone/etc/keystone.conf.sample keystone/etc/keystone.conf && \
     cp tre-smartcity-horizon/openstack_dashboard/local/local_settings.py.example tre-smartcity-horizon/openstack_dashboard/local/local_settings.py && \
     sed -i s/\$\$IDM_PASS/${IDM_PASS}/g tre-smartcity-horizon/openstack_dashboard/local/local_settings.py
 
+# Check python & pip versions
+RUN python -V
+RUN pip -V
+
 # Install python dependecies
-RUN pip install six
-RUN apt-get update
 RUN sudo python keystone/tools/install_venv.py 
 RUN sudo python tre-smartcity-horizon/tools/install_venv.py
 
