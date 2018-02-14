@@ -29,8 +29,10 @@ RUN cp keystone/etc/keystone.conf.sample keystone/etc/keystone.conf && \
     sed -i s/\$\$IDM_PASS/${IDM_PASS}/g tre-smartcity-horizon/openstack_dashboard/local/local_settings.py
 
 # Install python dependecies
-RUN sudo python keystone/tools/install_venv.py && \
-    sudo python tre-smartcity-horizon/tools/install_venv.py
+RUN pip install six
+RUN apt-get update
+RUN sudo python keystone/tools/install_venv.py 
+RUN sudo python tre-smartcity-horizon/tools/install_venv.py
 
 WORKDIR keystone
 
@@ -58,4 +60,4 @@ EXPOSE 5000
 # - Horizon (HTTP)
 EXPOSE 8000
 
-CMD sudo /keystone/tools/with_venv.sh /keystone/bin/keystone-all -v & sudo /horizon/tools/with_venv.sh python /horizon/manage.py runserver 0.0.0.0:8000
+CMD sudo /keystone/tools/with_venv.sh /keystone/bin/keystone-all -v & sudo /tre-smartcity-horizon/tools/with_venv.sh python /horizon/manage.py runserver 0.0.0.0:8000
