@@ -20,7 +20,7 @@ RUN git clone https://github.com/ging/keystone && \
     git checkout tags/keyrock-6.0.0
     
 RUN git clone https://github.com/TampereTC/tre-smartcity-horizon && \
-    cd horizon && \
+    cd tre-smartcity-horizon && \
     git checkout tags/keyrock-6.0.0
 
 # Configuring settings files
