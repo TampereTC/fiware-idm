@@ -1,5 +1,5 @@
 ***********************************
-Identity Manager - Keyrock Overview
+Identity Manager - Keyrock Overview, Tampere Smart City edition
 ***********************************
 
 .. image:: https://img.shields.io/badge/license-APACHE-blue.svg
