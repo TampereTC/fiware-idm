@@ -1,7 +1,9 @@
 ***********************************
 Identity Manager - Keyrock Overview 
-Tampere Smart City edition
 ***********************************
+
+Tampere Smart City edition
+============
 
 .. image:: https://img.shields.io/badge/license-APACHE-blue.svg
    :target: http://www.apache.org/licenses/LICENSE-2.0
