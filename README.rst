@@ -30,7 +30,7 @@ This project is part of `FIWARE <http://fiware.org>`__. You may find
 more information about this FIWARE GE
 `here <http://catalogue.fiware.org/enablers/identity-management-keyrock>`__.
 
--  You may find the source code of this project in GitHub `here <https://github.com/TampereTC/tre-smartcity-fiware-idm`
+-  You may find the source code of this project in GitHub https://github.com/TampereTC/tre-smartcity-fiware-idm
 -  You may find the documentation of this project in Read the Docs `here <http://fiware-idm.readthedocs.org/>`__
 
 Welcome to the main repository for the UPM's implementation of the
