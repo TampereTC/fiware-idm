@@ -27,7 +27,7 @@ This project is part of `FIWARE <http://fiware.org>`__. You may find
 more information about this FIWARE GE
 `here <http://catalogue.fiware.org/enablers/identity-management-keyrock>`__.
 
--  You may find the source code of this project in GitHub `here <https://github.com/ging/fiware-idm>`__
+-  You may find the source code of this project in GitHub `here <https://github.com/TampereTC/tre-smartcity-fiware-idm`__
 -  You may find the documentation of this project in Read the Docs `here <http://fiware-idm.readthedocs.org/>`__
 
 Welcome to the main repository for the UPM's implementation of the
@@ -79,10 +79,10 @@ Installing the back-end
 
       $ sudo apt-get install python python-dev python-virtualenv libxml2-dev libxslt1-dev libsasl2-dev libssl-dev libldap2-dev libffi-dev libsqlite3-dev libmysqlclient-dev python-mysqldb
 
-2. Get the code from our `GitHub repository <https://github.com/ging/keystone>`__
+2. Get the code from our `GitHub repository <https://github.com/TampereTC/tre-smartcity-keystone>`__
   :: 
 
-      $ git clone https://github.com/ging/keystone && cd keystone
+      $ git clone https://github.com/TampereTC/tre-smartcity-keystone && cd keystone
 
 3. Install the python dependencies
   ::
@@ -139,10 +139,10 @@ Installing the front-end
 
       $ sudo apt-get install python python-dev python-virtualenv libssl-dev libffi-dev libjpeg8-dev
 
-2. Get the code from our `GitHub repository <https://github.com/ging/horizon>`__
+2. Get the code from our `GitHub repository <https://github.com/TampereTC/tre-smartcity-horizon>`__
   :: 
 
-      $ git clone https://github.com/ging/horizon && cd horizon
+      $ git clone https://github.com/TampereTC/tre-smartcity-horizon && cd horizon
 
 3. Create a configuration file
   ::
@@ -181,7 +181,7 @@ Docker
 We provide a Docker image to facilitate you the building of this
 GE.
 
--  `Here <https://github.com/ging/fiware-idm/tree/master/extras/docker>`__
+-  `Here <https://github.com/TampereTC/tre-smartcity-fiware-idm/blob/master/extras/docker/Dockerfile>`__
    you will find the Dockerfile and the documentation explaining how to
    use it.
 -  In `Docker Hub <https://hub.docker.com/r/fiware/idm/>`__ you
@@ -193,7 +193,7 @@ We provide an installation script that can be run within a Ubuntu
 virtual machine. This script installs the whole Identity Manager, and
 sets it up to run in background.
 
-You can find the installation script and a verification script `here <https://github.com/ging/fiware-idm/tree/master/extras/scripts>`__.
+You can find the installation script and a verification script `here <https://github.com/TampereTC/tre-smartcity-fiware-idmtree/master/extras/scripts>`__.
 
 This image contains the following settings as defaults, but you can change any of them after installation, as you can see in the :ref:`horizon <horizon-configuration>` and the :ref:`keystone <keystone-configuration>` configuration instructions:
 
@@ -211,7 +211,7 @@ This image contains the following settings as defaults, but you can change any o
 
 Chef
 ^^^^
-We also provide a Chef Cookbook, which you can find `here <https://github.com/ging/fiware-idm/tree/master/extras/chef>`__.
+We also provide a Chef Cookbook, which you can find `here <https://github.com/TampereTC/tre-smartcity-fiware-idm/tree/master/extras/chef>`__.
 
 
 .. _api:
