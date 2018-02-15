@@ -1,5 +1,6 @@
 ***********************************
-Identity Manager - Keyrock Overview, Tampere Smart City edition
+Identity Manager - Keyrock Overview 
+Tampere Smart City edition
 ***********************************
 
 .. image:: https://img.shields.io/badge/license-APACHE-blue.svg
@@ -36,12 +37,17 @@ entry point and holds the documentation and some automated tools for
 installation and management. The IdM is composed of two independent
 components: a RESTful back-end and web front-end.
 
-If you want to see the
+If you want to see the original
 code for each of the components of the IdM and more specific
 documentation please head to each component's repository:
 
 -  Horizon based front-end `ging/horizon <https://github.com/ging/horizon>`__
 -  Keystone based back-end `ging/keystone <https://github.com/ging/keystone>`__
+
+Corresponding Tampere Smart City specific repositories with required modifications:
+
+-  Horizon: `TampereTC/tre-smartcity-horizon <https://github.com/TampereTC/tre-smartcity-horizon>`__
+-  Keystone: `TampereTC/tre-smartcity-keystone <https://github.com/TampereTC/tre-smartcity-keystone>`__
 
 You can see a working installation in the FIWARE Lab sandbox environment
 https://account.lab.fiware.org/
