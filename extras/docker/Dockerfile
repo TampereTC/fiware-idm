@@ -15,8 +15,8 @@ RUN sudo apt-get update && \
 RUN sudo apt-get install -y python-dev python-virtualenv libssl-dev libffi-dev libjpeg8-dev libxml2-dev libxslt1-dev libsasl2-dev libssl-dev libldap2-dev libffi-dev libsqlite3-dev libmysqlclient-dev python-mysqldb 
 
 # Download latest version of the code 
-RUN git clone https://github.com/ging/keystone && \
-    cd keystone && \
+RUN git clone https://github.com//TampereTC/tre-smartcity-keystone && \
+    cd tre-smartcity-keystone && \
     git checkout tags/keyrock-6.0.0
     
 RUN git clone https://github.com/TampereTC/tre-smartcity-horizon && \
@@ -24,7 +24,7 @@ RUN git clone https://github.com/TampereTC/tre-smartcity-horizon && \
     git checkout tags/keyrock-6.0.0
 
 # Configuring settings files
-RUN cp keystone/etc/keystone.conf.sample keystone/etc/keystone.conf && \
+RUN cp tre-smartcity-keystone/etc/keystone.conf.sample tre-smartcity-keystone/etc/keystone.conf && \
     cp tre-smartcity-horizon/openstack_dashboard/local/local_settings.py.example tre-smartcity-horizon/openstack_dashboard/local/local_settings.py && \
     sed -i s/\$\$IDM_PASS/${IDM_PASS}/g tre-smartcity-horizon/openstack_dashboard/local/local_settings.py
 
@@ -33,7 +33,7 @@ RUN python -V
 RUN pip -V
 
 # Install python dependecies
-RUN sudo python keystone/tools/install_venv.py 
+RUN sudo python tre-smartcity-keystone/tools/install_venv.py 
 RUN sudo python tre-smartcity-horizon/tools/install_venv.py
 
 WORKDIR keystone
@@ -62,4 +62,4 @@ EXPOSE 5000
 # - Horizon (HTTP)
 EXPOSE 8000
 
-CMD sudo /keystone/tools/with_venv.sh /keystone/bin/keystone-all -v & sudo /tre-smartcity-horizon/tools/with_venv.sh python /horizon/manage.py runserver 0.0.0.0:8000
+CMD sudo /tre-smartcity-keystone/tools/with_venv.sh /tre-smartcity-keystone/bin/keystone-all -v & sudo /tre-smartcity-horizon/tools/with_venv.sh python /tre-smartcity-horizon/manage.py runserver 0.0.0.0:8000
