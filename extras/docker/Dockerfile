@@ -18,7 +18,7 @@ RUN sudo apt-get install -y python-dev python-virtualenv libssl-dev libffi-dev l
 RUN git clone https://github.com/TampereTC/tre-smartcity-keystone && \
     cd tre-smartcity-keystone && \
     git checkout tags/keyrock-6.0.0
-    
+RUN  sudo -H .venv/bin/pip install six==1.9.0    
 RUN git clone https://github.com/TampereTC/tre-smartcity-horizon && \
     cd tre-smartcity-horizon && \
     git checkout tags/keyrock-6.0.0
