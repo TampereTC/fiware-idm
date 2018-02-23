@@ -12,31 +12,28 @@ RUN sudo apt-get update && \
     sudo python get-pip.py
 
 # Install Ubuntu project dependencies
-RUN sudo apt-get install -y python-dev python-virtualenv libssl-dev libffi-dev libjpeg8-dev libxml2-dev libxslt1-dev libsasl2-dev libssl-dev libldap2-dev libffi-dev libsqlite3-dev libmysqlclient-dev python-mysqldb 
+RUN sudo apt-get install -y python-dev python-virtualenv libssl-dev libffi-dev libjpeg8-dev libxml2-dev libxslt1-dev libsasl2-dev libssl-dev libldap2-dev libffi-dev libsqlite3-dev libmysqlclient-dev python-mysqldb
 
 # Download latest version of the code 
 RUN git clone https://github.com/TampereTC/tre-smartcity-keystone && \
     cd tre-smartcity-keystone && \
-    git checkout tags/keyrock-6.0.0
-RUN  sudo -H .venv/bin/pip install six==1.9.0    
+    git checkout -b tags/keyrock-6.0.0
+    
 RUN git clone https://github.com/TampereTC/tre-smartcity-horizon && \
     cd tre-smartcity-horizon && \
-    git checkout tags/keyrock-6.0.0
+    git checkout -b tags/keyrock-6.0.0
 
 # Configuring settings files
 RUN cp tre-smartcity-keystone/etc/keystone.conf.sample tre-smartcity-keystone/etc/keystone.conf && \
     cp tre-smartcity-horizon/openstack_dashboard/local/local_settings.py.example tre-smartcity-horizon/openstack_dashboard/local/local_settings.py && \
     sed -i s/\$\$IDM_PASS/${IDM_PASS}/g tre-smartcity-horizon/openstack_dashboard/local/local_settings.py
 
-# Check python & pip versions
-RUN python -V
-RUN pip -V
-
 # Install python dependecies
-RUN sudo python tre-smartcity-keystone/tools/install_venv.py 
-RUN sudo python tre-smartcity-horizon/tools/install_venv.py
+RUN sudo python tre-smartcity-keystone/tools/install_venv.py && \
+    sudo python tre-smartcity-horizon/tools/install_venv.py
 
-WORKDIR keystone
+
+WORKDIR tre-smartcity-keystone
 
 # Sync database
 RUN sudo tools/with_venv.sh bin/keystone-manage db_sync && \
@@ -53,8 +50,8 @@ RUN sed -i s/\$\$IDM_PASS/${IDM_PASS}/g expect_idm_password && \
     sudo ./expect_idm_password
 
 # Mount volumes to grant access from host
-VOLUME /keystone/
-VOLUME /horizon/
+VOLUME /tre-smartcity-keystone/
+VOLUME /tre-smartcity-horizon/
 
 ### Exposed ports
 # - Keystone
